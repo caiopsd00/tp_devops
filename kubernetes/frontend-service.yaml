@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: frontend-service
 spec:
-  type: NodePort  # Use LoadBalancer se estiver usando um provedor de nuvem
+  type: NodePort
   ports:
   - port: 80
-    nodePort: 30080  # Altere se necessário
+    nodePort: 30080
   selector:
     app: frontend
