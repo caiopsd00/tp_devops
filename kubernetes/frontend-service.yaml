@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: NodePort  # Use LoadBalancer se estiver usando um provedor de nuvem
+  ports:
+  - port: 80
+    nodePort: 30080  # Altere se necessário
+  selector:
+    app: frontend

@@ -1,13 +1,16 @@
 const express = require('express');
-const app = express();
-const taskRoutes = require('./routes');
-const { connectDB } = require('./database');
+const cors = require('cors');
 
-connectDB();
+const app = express();
+
+app.use(cors());
 
 app.use(express.json());
+
+const taskRoutes = require('./routes');
 app.use('/api/tasks', taskRoutes);
 
-app.listen(3001, () => {
-  console.log('Server running on port 3001');
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
